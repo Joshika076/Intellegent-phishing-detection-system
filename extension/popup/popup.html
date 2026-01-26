@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            width: 380px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            text-align: center;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.5em;
+        }
+
+        .status-badge {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e8ed;
+        }
+
+        .status-badge.safe {
+            color: #2ecc71;
+        }
+
+        .status-badge.phishing {
+            color: #e74c3c;
+        }
+
+        .status-badge.loading {
+            color: #95a5a6;
+        }
+
+        .btn {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-url {
+            background-color: #3498db;
+            border-bottom: 4px solid #2980b9;
+        }
+
+        .btn-url:hover {
+            background-color: #298bce;
+            transform: translateY(-1px);
+        }
+
+        .btn-email {
+            background-color: #95a5a6;
+            border-bottom: 4px solid #7f8c8d;
+        }
+
+        .btn-email:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-1px);
+        }
+
+        .result-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 80px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e8ed;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .result-text {
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .result-text .label {
+            color: #2c3e50;
+        }
+
+        .result-text.safe {
+            color: #27ae60;
+        }
+
+        .result-text.phishing {
+            color: #c0392b;
+        }
+
+        .details {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            word-break: break-all;
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Phishing Detector</h2>
+
+        <div id="status-badge" class="status-badge loading">Checking...</div>
+
+        <button id="check-url" class="btn btn-url">Check URL Safety</button>
+        <button id="scan-page" class="btn btn-email">Scan Page Text / Email</button>
+
+        <div class="result-box">
+            <div id="result-display" class="result-text">
+                <span class="label">Result:</span> <span id="result-message">Ready to scan</span>
+            </div>
+        </div>
+
+        <div id="url-text" class="details"></div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
